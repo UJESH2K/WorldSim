@@ -1,0 +1,13 @@
+{
+  "mock": {
+    "params": {
+      "veer": 0.3,
+      "spin": 0.5,
+      "balance": 0.3,
+      "yield_gap": 0.5
+    },
+    "score": 3.2,
+    "scene": "forest",
+    "at": "2026-10-10 11:10:49"
+  }
+}

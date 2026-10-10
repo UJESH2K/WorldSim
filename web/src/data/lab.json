@@ -1,0 +1,164 @@
+{
+ "run": "lab-20261010-124141",
+ "best": "v7",
+ "before": {
+  "version": "v0",
+  "crash_rate": 0.625,
+  "mean_distance_m": 12.85,
+  "near_miss_steps": 2.22,
+  "min_clearance_m": 0.26,
+  "expert_agreement": 0.31,
+  "success_rate": 0.375,
+  "iteration": 0,
+  "seconds": 25.7
+ },
+ "after": {
+  "version": "v7",
+  "crash_rate": 0.062,
+  "mean_distance_m": 18.36,
+  "near_miss_steps": 1.38,
+  "min_clearance_m": 0.63,
+  "expert_agreement": 0.707,
+  "success_rate": 0.938,
+  "states": 1781,
+  "dataset": 11879,
+  "mistakes": 33,
+  "loss_imitation": 0.742,
+  "loss_rl": 0.479,
+  "loss_value": 5.765,
+  "iteration": 7,
+  "beta": 0.0,
+  "train_crash_rate": 0.188,
+  "seconds": 807.4
+ },
+ "fixed": 44,
+ "mistakes": 50,
+ "curve": [
+  {
+   "v": "v0",
+   "crash": 0.625,
+   "dist": 12.85
+  },
+  {
+   "v": "v1",
+   "crash": 0.531,
+   "dist": 14.88
+  },
+  {
+   "v": "v2",
+   "crash": 0.375,
+   "dist": 16.18
+  },
+  {
+   "v": "v3",
+   "crash": 0.312,
+   "dist": 17.49
+  },
+  {
+   "v": "v4",
+   "crash": 0.219,
+   "dist": 18.32
+  },
+  {
+   "v": "v5",
+   "crash": 0.281,
+   "dist": 18.32
+  },
+  {
+   "v": "v6",
+   "crash": 0.125,
+   "dist": 18.09
+  },
+  {
+   "v": "v7",
+   "crash": 0.062,
+   "dist": 18.36
+  },
+  {
+   "v": "v8",
+   "crash": 0.219,
+   "dist": 17.97
+  },
+  {
+   "v": "v9",
+   "crash": 0.312,
+   "dist": 17.48
+  },
+  {
+   "v": "v10",
+   "crash": 0.219,
+   "dist": 18.98
+  }
+ ],
+ "bench": 32,
+ "audit": [
+  {
+   "run": "flight-20261006-231544",
+   "scene": "forest",
+   "chunks": 51,
+   "trusted": 0.824,
+   "events": 3,
+   "first": 17
+  },
+  {
+   "run": "flight-20261006-231837",
+   "scene": "warehouse",
+   "chunks": 50,
+   "trusted": 0.2,
+   "events": 4,
+   "first": 11
+  },
+  {
+   "run": "flight-20261006-235513",
+   "scene": "forest",
+   "chunks": 132,
+   "trusted": 1.0,
+   "events": 0,
+   "first": null
+  },
+  {
+   "run": "flight-20261007-003311",
+   "scene": "forest",
+   "chunks": 143,
+   "trusted": 1.0,
+   "events": 0,
+   "first": null
+  },
+  {
+   "run": "flight-20261010-105402",
+   "scene": "forest",
+   "chunks": 109,
+   "trusted": 0.807,
+   "events": 5,
+   "first": 37
+  },
+  {
+   "run": "flight-20261010-105539",
+   "scene": "place-20261010-103306",
+   "chunks": 114,
+   "trusted": 0.193,
+   "events": 7,
+   "first": 12
+  },
+  {
+   "run": "flight-20261010-105703",
+   "scene": "place-20261010-103306",
+   "chunks": 81,
+   "trusted": 1.0,
+   "events": 2,
+   "first": 32
+  }
+ ],
+ "sim_compare": {
+  "flights": 12,
+  "reflex": {
+   "crash": 0.8333333333333334,
+   "distance": 10.6
+  },
+  "learned": {
+   "crash": 0.25,
+   "distance": 17.6
+  },
+  "model": "v7"
+ }
+}

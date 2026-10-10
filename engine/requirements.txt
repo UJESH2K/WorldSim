@@ -1,0 +1,11 @@
+reactor-sdk==1.8.0
+numpy
+opencv-python
+torch
+fastapi
+uvicorn
+pydantic
+scikit-learn
+ultralytics
+torchvision
+mujoco

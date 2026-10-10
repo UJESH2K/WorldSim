@@ -1,0 +1,28 @@
+[
+  {
+    "key": "place-20261010-102930",
+    "title": "Your place",
+    "description": "an indoor room",
+    "described_by": "default",
+    "drone_box": [
+      0.38,
+      0.44,
+      0.24,
+      0.2
+    ],
+    "at": "2026-10-10 10:29:34"
+  },
+  {
+    "key": "place-20261010-103306",
+    "title": "awign 4th floor",
+    "description": "Hack room",
+    "described_by": "you",
+    "drone_box": [
+      0.38,
+      0.44,
+      0.24,
+      0.2
+    ],
+    "at": "2026-10-10 10:33:06"
+  }
+]

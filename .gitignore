@@ -1,0 +1,23 @@
+.env
+.env.local
+.env*.local
+engine/.venv/
+engine/data/*
+# Keep what the Pilot Lab and the world audit pages need; raw recordings stay local (~300 MB).
+!engine/data/calibration.json
+!engine/data/pilot.json
+!engine/data/custom_worlds.json
+!engine/data/models/
+engine/data/models/*
+!engine/data/models/factory-pilot.pt
+!engine/data/models/lab-lab-20261010-124141-v7.pt
+!engine/data/lab/
+engine/data/lab/*
+!engine/data/lab/lab-20261010-124141/
+!engine/data/bank/
+engine/data/bank/*/*/*
+!engine/data/bank/*/*/audit.json
+__pycache__/
+*.pyc
+node_modules/
+web/.next/
