@@ -1,0 +1,24 @@
+{
+ "start": 0.0,
+ "end": 98.97,
+ "duration": 98.97,
+ "kept": 98.97,
+ "confidence": 0.15,
+ "head_dead": 0.0,
+ "tail_dead": 0.0,
+ "cut_share": 0.0,
+ "reasons": [
+  "no sustained hand work on \u201cpizza\u201d found \u2014 keeping the whole clip"
+ ],
+ "auto": false,
+ "topic": "pizza",
+ "topic_share": 0.444,
+ "applied": false,
+ "draft": {
+  "drafted": 12,
+  "mean_confidence": 0.66,
+  "high": 2,
+  "medium": 10,
+  "low": 0
+ }
+}

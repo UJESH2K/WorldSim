@@ -1,0 +1,90 @@
+{
+ "status": "approved",
+ "annotator": "ujesh",
+ "submitted_at": "2026-10-11 02:28:21",
+ "returned_at": null,
+ "approved_at": "2026-10-11 02:29:39",
+ "history": [
+  {
+   "action": "handoff",
+   "at": "2026-10-11 02:26:05",
+   "by": "qc",
+   "note": "cut and first-pass annotations accepted by QC"
+  },
+  {
+   "action": "submit",
+   "at": "2026-10-11 02:28:21",
+   "by": "ujesh",
+   "note": "",
+   "version": 1,
+   "issues": 2,
+   "flags": [
+    "worth a second look"
+   ]
+  },
+  {
+   "action": "approve",
+   "at": "2026-10-11 02:29:39",
+   "by": "qa",
+   "note": "",
+   "issues": 2
+  }
+ ],
+ "operator": "qc",
+ "initial": {
+  "issues": 2,
+  "fix": 0,
+  "readiness": 81,
+  "by_kind": {
+   "blur": 2
+  },
+  "coverage": {
+   "annotated_share": 0.417,
+   "working_share": 0.449,
+   "missed_share": 0.038,
+   "missed_s": 3.7
+  }
+ },
+ "handed_off_at": "2026-10-11 02:26:05",
+ "flags": [
+  {
+   "kind": "worth a second look",
+   "to": "qa",
+   "severity": "check",
+   "title": "1 segment the gate is unsure about",
+   "detail": "Nothing provably wrong, but the evidence is weak enough to be worth a glance.",
+   "nudge": "Skim these, then approve."
+  }
+ ],
+ "version": 1,
+ "at_submit": {
+  "issues": 2,
+  "fix": 0,
+  "readiness": 87,
+  "by_kind": {
+   "blur": 1,
+   "unlabelled activity": 1
+  },
+  "coverage": {
+   "annotated_share": 0.545,
+   "working_share": 0.449,
+   "missed_share": 0.056,
+   "missed_s": 5.5
+  }
+ },
+ "at_approve": {
+  "issues": 2,
+  "fix": 0,
+  "readiness": 87,
+  "by_kind": {
+   "blur": 1,
+   "unlabelled activity": 1
+  },
+  "coverage": {
+   "annotated_share": 0.545,
+   "working_share": 0.449,
+   "missed_share": 0.056,
+   "missed_s": 5.5
+  }
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "status": "returned",
+ "annotator": "ujesh",
+ "submitted_at": "2026-10-10 22:47:30",
+ "returned_at": "2026-10-11 03:15:54",
+ "approved_at": null,
+ "history": [
+  {
+   "action": "submit",
+   "at": "2026-10-10 22:47:30",
+   "by": "ujesh",
+   "note": "",
+   "version": 1,
+   "issues": 3
+  },
+  {
+   "action": "return",
+   "at": "2026-10-11 03:15:54",
+   "by": "qa",
+   "note": "Please review the flagged issues and resubmit."
+  }
+ ],
+ "operator": "qc",
+ "initial": {
+  "issues": 0,
+  "fix": 0,
+  "readiness": 96,
+  "by_kind": {}
+ },
+ "version": 1,
+ "at_submit": {
+  "issues": 3,
+  "fix": 2,
+  "readiness": 90,
+  "by_kind": {
+   "too short": 1,
+   "inverted times": 1,
+   "empty label": 1
+  }
+ }
+}

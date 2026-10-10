@@ -1,0 +1,25 @@
+{
+ "status": "draft",
+ "annotator": null,
+ "submitted_at": null,
+ "returned_at": null,
+ "approved_at": null,
+ "history": [],
+ "initial": {
+  "issues": 4,
+  "fix": 1,
+  "readiness": 87,
+  "by_kind": {
+   "hands out of view": 1,
+   "blur": 1,
+   "unlabelled activity": 1,
+   "typo": 1
+  },
+  "coverage": {
+   "annotated_share": 0.432,
+   "working_share": 0.45,
+   "missed_share": 0.026,
+   "missed_s": 11.5
+  }
+ }
+}

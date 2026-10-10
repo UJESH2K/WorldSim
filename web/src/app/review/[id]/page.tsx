@@ -1,0 +1,484 @@
+"use client";
+
+import Link from "next/link";
+import { useParams, useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { AlertTriangle, ArrowRight, CheckCircle2, Download, Loader2, Play, Plus, RefreshCw, RotateCcw, Send, Sparkles, Trash2, Wand2 } from "lucide-react";
+import { AppHeader } from "@/components/Brand";
+import { Count, Reveal } from "@/components/Motion";
+import { IssueCard } from "@/components/review/IssueCard";
+import { Player, type PlayerHandle, type View } from "@/components/review/Player";
+import { RenderPanel } from "@/components/review/RenderPanel";
+import { Timeline } from "@/components/review/Timeline";
+import { ENGINE_URL, STATUS, fmt, getJSON, postJSON, type ClipDetail, type Issue, type LabelOpinion, type Track } from "@/lib/solosim";
+
+const FILTERS = ["open", "fix", "check", "done", "all"] as const;
+
+function Opinion({ o, title }: { o: LabelOpinion; title: string }) {
+  const bad = o.verdict.startsWith("wrong") || o.verdict === "not visible";
+  return (
+    <div className="rounded-lg bg-surface-2 p-3 text-sm">
+      <div className="flex items-center justify-between gap-2">
+        <span className="text-xs text-muted">{title}</span>
+        <span className={`text-xs font-semibold uppercase ${bad ? "text-warning" : o.verdict === "correct" ? "text-clear" : "text-muted"}`}>{o.verdict}</span>
+      </div>
+      {o.observed_action && <p className="mt-1">Sees: <b>{o.observed_action}</b></p>}
+      {o.explanation && <p className="mt-0.5 text-xs text-ink-2">{o.explanation}</p>}
+    </div>
+  );
+}
+
+export default function ReviewPage() {
+  const { id } = useParams<{ id: string }>();
+  const searchParams = useSearchParams();
+  const role = searchParams.get("role") ?? "annotator";
+  const [d, setD] = useState<ClipDetail | null>(null);
+  const [track, setTrack] = useState<Track | null>(null);
+  const [time, setTime] = useState(0);
+  const [focus, setFocus] = useState<string | null>(null);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [filter, setFilter] = useState<(typeof FILTERS)[number]>("open");
+  const [busy, setBusy] = useState(false);
+  const [view, setView] = useState<View>("fit");
+  const [error, setError] = useState<string | null>(null);
+  const [claude, setClaude] = useState<Record<string, LabelOpinion>>({});
+  const [claudeBusy, setClaudeBusy] = useState<string | null>(null);
+  const [draftLabel, setDraftLabel] = useState<{ id: string; text: string } | null>(null);
+  const editor = useRef<HTMLElement | null>(null);
+  const labelBox = useRef<HTMLInputElement | null>(null);
+  const player = useRef<PlayerHandle>(null);
+  const lastT = useRef(0);
+
+  const load = useCallback(async () => {
+    try {
+      const r = await getJSON<ClipDetail>(`/clips/${id}`);
+      setD(r);
+      if (r.report) getJSON<Track>(`/clips/${id}/track`).then(setTrack).catch(() => {});
+      return r;
+    } catch (e) {
+      setError((e as Error).message);
+    }
+  }, [id]);
+
+  useEffect(() => {
+    Promise.resolve().then(load);
+  }, [load]);
+
+  // Poll while the gate is running.
+  useEffect(() => {
+    if (d?.job?.status !== "running") return;
+    const t = setTimeout(load, 1200);
+    return () => clearTimeout(t);
+  }, [d, load]);
+
+  const onTime = useCallback((t: number) => {
+    if (Math.abs(t - lastT.current) > 0.08) {
+      lastT.current = t;
+      setTime(t);
+    }
+  }, []);
+
+  const rep = d?.report;
+  const segs = useMemo(() => d?.segments ?? [], [d]);
+  const segById = useMemo(() => Object.fromEntries(segs.map((s) => [s.id, s])), [segs]);
+  const decidedIssue = useMemo(() => {
+    const m: Record<string, string> = {};
+    for (const x of d?.review.decisions ?? []) if (x.issue) m[x.issue] = x.action === "apply" ? "fixed" : x.action === "accept" ? "accepted" : x.action === "reject" ? "dropped" : x.action;
+    return m;
+  }, [d]);
+  const issues = useMemo(() => [...(rep?.issues ?? [])].sort((a, b) => a.t - b.t), [rep]);
+  const shown = issues.filter((i) =>
+    filter === "all" ? true : filter === "done" ? decidedIssue[i.id] : filter === "open" ? !decidedIssue[i.id] : i.severity === filter && !decidedIssue[i.id]);
+  const open = issues.filter((i) => !decidedIssue[i.id]);
+  const focused = issues.find((i) => i.id === focus) ?? null;
+  const sel = selected ? segById[selected] : null;
+  const dirty = !!sel && draftLabel?.id === sel.id && draftLabel.text.trim() !== sel.narration.trim() && !!draftLabel.text.trim();
+
+  const goto = useCallback((i: Issue) => {
+    setFocus(i.id);
+    if (i.segment) setSelected(i.segment);
+    player.current?.seek(Math.max(0, i.t - 0.4));
+  }, []);
+
+  const deepIssue = searchParams.get("issue");
+  const deepDone = useRef(false);
+  useEffect(() => {
+    if (deepDone.current || !deepIssue || !rep) return;
+    const i = rep.issues.find((x) => x.id === deepIssue);
+    if (!i) return;
+    deepDone.current = true;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setFilter("all");
+    const t = setTimeout(() => {
+      goto(i);
+      document.getElementById(`issue-${i.id}`)?.scrollIntoView({ block: "center", behavior: "smooth" });
+    }, 400);
+    return () => clearTimeout(t);
+  }, [deepIssue, rep, goto]);
+
+  async function wf(action: string, extra: Record<string, string> = {}) {
+    setBusy(true); setError(null);
+    try { setD(await postJSON<ClipDetail>(`/clips/${id}/workflow`, { action, ...extra })); } catch (e) { setError((e as Error).message); } finally { setBusy(false); }
+  }
+
+  async function submitToQA() {
+    if (open.length && !confirm(`${open.length} flagged issue${open.length > 1 ? "s are" : " is"} still open. QA will see them. Submit anyway?`)) return;
+    let annotator = "";
+    try { annotator = localStorage.getItem("solosim_annotator") || ""; } catch {}
+    await wf("submit", { annotator });
+  }
+
+  async function autofix() {
+    setBusy(true); setError(null);
+    try {
+      const r = await postJSON<ClipDetail & { autofixed: number }>(`/clips/${id}/autofix`);
+      setD(r);
+      setError(r.autofixed ? null : "Nothing left that can be fixed automatically.");
+    } catch (e) { setError((e as Error).message); } finally { setBusy(false); }
+  }
+
+  // Keyboard: N = next open issue.
+  useEffect(() => {
+    const h = (e: KeyboardEvent) => {
+      if ((e.target as HTMLElement).tagName === "INPUT" || (e.target as HTMLElement).tagName === "TEXTAREA") return;
+      if (e.key === "n" || e.key === "N") {
+        const after = open.find((i) => i.t > (focused?.t ?? -1) && i.id !== focus) ?? open[0];
+        if (after) goto(after);
+      }
+    };
+    window.addEventListener("keydown", h);
+    return () => window.removeEventListener("keydown", h);
+  }, [open, focused, focus, goto]);
+
+  async function analyze() {
+    setError(null);
+    try {
+      await postJSON(`/clips/${id}/analyze`);
+      await load();
+    } catch (e) {
+      setError((e as Error).message);
+    }
+  }
+
+  async function autodraft() {
+    setBusy(true);
+    setError(null);
+    try {
+      await postJSON(`/clips/${id}/autodraft`);
+      await load();
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function decide(i: Issue, action: "apply" | "accept" | "reject") {
+    setBusy(true);
+    setError(null);
+    try {
+      const r = await postJSON<ClipDetail>(`/clips/${id}/decide`, { issue: i.id, segment: i.segment, action });
+      setD(r);
+      const next = (r.report?.issues ?? []).filter((x) => !r.review.decisions.some((dd) => dd.issue === x.id)).sort((a, b) => a.t - b.t).find((x) => x.t >= i.t);
+      if (next) goto(next);
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function edit(body: { segment?: string; action: "edit" | "reject" | "add"; values?: Record<string, unknown> }) {
+    setBusy(true);
+    setError(null);
+    try {
+      const r = await postJSON<ClipDetail>(`/clips/${id}/decide`, { values: {}, ...body });
+      setD(r);
+      if (body.action === "reject") setSelected(null);
+      if (body.action === "add") {
+        const added = r.segments.find((x) => !segs.some((y) => y.id === x.id));
+        if (added) {
+          // Select it, put the cursor in its label, and bring the editor into view. The editor sits
+          // below the timeline, so adding a segment used to scroll nothing and look like nothing
+          // had happened — the segment was there, a screen further down, still called "new action".
+          setSelected(added.id);
+          setDraftLabel({ id: added.id, text: "" });
+          requestAnimationFrame(() => {
+            editor.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+            labelBox.current?.focus();
+          });
+        }
+      }
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function askClaude(sid: string) {
+    setClaudeBusy(sid);
+    setError(null);
+    try {
+      const r = await postJSON<{ result: LabelOpinion; spend: ClipDetail["spend"] }>(`/clips/${id}/claude/${sid}`);
+      setClaude((c) => ({ ...c, [sid]: r.result }));
+      setD((x) => (x ? { ...x, spend: r.spend } : x));
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setClaudeBusy(null);
+    }
+  }
+
+  if (!d) {
+    return (
+      <div className="sim min-h-screen bg-bg text-ink">
+        <AppHeader />
+        <div className="grid h-[70vh] place-items-center text-muted">{error ?? <Loader2 className="h-6 w-6 animate-spin" />}</div>
+      </div>
+    );
+  }
+
+  const running = d.job?.status === "running";
+  const s = rep?.summary;
+  const claudeLeft = d.spend.available ? d.spend.left_usd : null;
+  const groqOpinion = (sid: string) => rep?.label.results?.[sid];
+
+  return (
+    <div className="sim flex min-h-screen flex-col overflow-x-clip bg-bg text-ink">
+      <AppHeader>
+        <div className="flex min-w-0 items-center gap-3">
+          <Link href={role === "qa" ? "/qa" : "/annotator"} className="hidden text-sm text-muted hover:text-ink md:inline">{role === "qa" ? "QA" : "Annotator"} /</Link>
+          <h1 className="truncate text-sm font-semibold">{d.clip.title}</h1>
+          <span className="num hidden text-xs text-muted lg:inline">{fmt(d.clip.duration)} · {segs.length} segments · {d.clip.width}×{d.clip.height}</span>
+        </div>
+      </AppHeader>
+
+      {error && (
+        <div className="flex items-center justify-between border-b border-collision/40 bg-collision/15 px-4 py-2 text-sm" role="alert">
+          <span>{error}</span>
+          <button onClick={() => setError(null)} className="text-muted hover:text-ink">Dismiss</button>
+        </div>
+      )}
+
+      <div className={`mx-auto grid w-full flex-1 gap-4 p-4 ${view === "theater" ? "max-w-[1400px]" : "max-w-[1600px] lg:grid-cols-[minmax(0,1fr)_minmax(360px,420px)] xl:grid-cols-[minmax(0,1fr)_440px]"}`}>
+        {/* ----------------------------------------------------------- left: footage + timeline */}
+        <main className="flex min-w-0 flex-col gap-3">
+          {s && (
+            <Reveal className="grid grid-cols-2 gap-px overflow-hidden rounded-[14px] border border-line bg-line shadow-[var(--shadow-1)] sm:grid-cols-3 lg:grid-cols-6">
+              <div className="bg-surface px-4 py-2.5">
+                <div className="text-[11px] text-muted">Robot-readiness</div>
+                <div className="num text-2xl font-semibold"><Count to={s.readiness} /><span className="text-sm text-muted">/100</span></div>
+              </div>
+              {(["pass", "check", "fix"] as const).map((k) => (
+                <div key={k} className="bg-surface px-4 py-2.5">
+                  <div className="flex items-center gap-1.5 text-[11px] text-muted"><span className="h-2 w-2 rounded-full" style={{ background: STATUS[k].color }} />{k === "pass" ? "Auto-passed" : k === "check" ? "To look at" : "To fix"}</div>
+                  <div className="num text-2xl font-semibold"><Count to={s[k]} duration={0.7} /><span className="text-sm text-muted"> seg</span></div>
+                </div>
+              ))}
+              <div className="bg-surface px-4 py-2.5">
+                <div className="text-[11px] text-muted">Reviewer watches</div>
+                <div className="num text-2xl font-semibold">{Math.round(s.review_share * 100)}%</div>
+              </div>
+              {rep?.timing && (
+                <div className="bg-surface px-4 py-2.5">
+                  <div className="text-[11px] text-muted">Analysis speed</div>
+                  <div className="num text-2xl font-semibold"><Count to={rep.timing.seconds ?? 0} decimals={1} /><span className="text-sm text-muted">s</span></div>
+                  <div className="num text-[11px] text-accent">{rep.timing.realtime_factor?.toFixed(1)}× realtime</div>
+                </div>
+              )}
+            </Reveal>
+          )}
+          <Player ref={player} src={`${ENGINE_URL}/clips/${id}/video`} aspect={d.clip.width / d.clip.height} fps={d.clip.fps} track={track}
+            segments={segs} status={rep?.status ?? {}} focus={focused} onTime={onTime}
+            issues={issues} duration={d.clip.duration} view={view} onView={setView} />
+          {rep && (
+            <div className="-mb-1 flex flex-wrap items-center justify-between gap-2">
+              <p className="text-xs text-muted">Scrub to where an action starts, then write your own label for it.</p>
+              <button disabled={busy} onClick={() => edit({ action: "add", values: { start: Number(time.toFixed(2)), end: Number(Math.min(d.clip.duration, time + 2).toFixed(2)), narration: "" } })}
+                className="btn btn-quiet inline-flex items-center gap-1.5 border-accent/40 px-3 py-1.5 text-xs font-semibold text-accent hover:bg-accent/10">
+                <Plus className="h-4 w-4" /> Add my own annotation at {fmt(time)}</button>
+            </div>
+          )}
+          {rep ? (
+            <Timeline duration={d.clip.duration} segments={segs} status={rep.status} issues={issues} track={track} time={time}
+              selected={selected} focus={focus} onSeek={(t) => player.current?.seek(t)} onSelect={setSelected} onFocus={goto} />
+          ) : (
+            <div className="rounded-xl border border-dashed border-line p-6 text-center">
+              {running ? (
+                <div className="mx-auto max-w-md">
+                  <p className="flex items-center justify-center gap-2 text-sm"><Loader2 className="h-4 w-4 animate-spin text-accent" /> {d.job?.stage}</p>
+                  <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-surface-2"><div className="h-full bg-accent transition-all" style={{ width: `${(d.job?.fraction ?? 0) * 100}%` }} /></div>
+                </div>
+              ) : segs.length === 0 ? (
+                /* An empty clip is a choice, not a problem. Draft it and check the draft, or label
+                   it yourself from nothing — the AI pass is offered, and that is all it is. */
+                <div className="mx-auto max-w-md">
+                  <p className="text-sm text-ink-2">This clip has no annotations yet. You can have the AI write a first pass for you to check, or label it yourself.</p>
+                  <div className="mt-3 flex flex-wrap justify-center gap-2">
+                    <button onClick={autodraft} disabled={busy} className="inline-flex items-center gap-2 rounded-lg bg-accent-fill px-4 py-2 text-sm font-semibold text-white disabled:opacity-50">
+                      <Sparkles className="h-4 w-4" /> Auto-annotate for me
+                    </button>
+                    <button onClick={analyze} disabled={busy} className="btn btn-quiet inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold">
+                      <Play className="h-4 w-4" /> I&rsquo;ll label it myself
+                    </button>
+                  </div>
+                  <p className="mt-2 text-[11px] text-muted">The draft arrives with a confidence on every claim. Nothing it writes is final.</p>
+                </div>
+              ) : (
+                <>
+                  <p className="text-sm text-ink-2">Not checked yet. The gate measures every frame, checks every segment, and asks an AI reviewer about every label.</p>
+                  <button onClick={analyze} className="mt-3 inline-flex items-center gap-2 rounded-lg bg-accent-fill px-4 py-2 text-sm font-semibold text-white"><Play className="h-4 w-4" /> Run the gate</button>
+                </>
+              )}
+            </div>
+          )}
+          {sel && (
+            <section ref={editor} className="grid gap-4 rounded-xl border border-line bg-surface p-4 xl:grid-cols-[minmax(0,300px)_minmax(0,1fr)]">
+              <div>
+                <label className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide text-muted" htmlFor="seg-label">
+                  <span className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: STATUS[rep?.status[sel.id] ?? "pass"].color }} />
+                  Label for this segment
+                </label>
+                <form className="mt-1 flex min-w-0 gap-1.5"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    if (dirty) edit({ segment: sel.id, action: "edit", values: { narration: draftLabel!.text.trim() } });
+                  }}>
+                  {/* A field that looks like a field. It used to be transparent and borderless so it
+                      read as a heading, and people reasonably concluded the label could not be changed. */}
+                  <input id="seg-label" ref={labelBox} aria-label="Label" placeholder="e.g. cut pizza" autoComplete="off"
+                    value={draftLabel?.id === sel.id ? draftLabel.text : sel.narration}
+                    onChange={(e) => setDraftLabel({ id: sel.id, text: e.target.value })}
+                    className="min-w-0 flex-1 rounded-md border border-line bg-surface-2 px-2 py-1.5 font-semibold placeholder:font-normal placeholder:text-muted focus:border-accent focus:outline-none" />
+                  <button disabled={busy || !dirty} title={dirty ? "Save this label" : "Change the text to save"}
+                    className="shrink-0 rounded-md bg-accent-fill px-3 py-1.5 text-xs font-semibold text-white disabled:opacity-40">Save</button>
+                </form>
+                <p className="num mt-0.5 text-xs text-muted">
+                  {fmt(sel.start)} – {fmt(sel.end)} · {(sel.end - sel.start).toFixed(1)} s · verb <b>{sel.verb}</b> · object <b>{sel.noun}</b>
+                  {sel.meta?.drafted_by === "ai" && <span className="ml-1 rounded bg-anomaly/30 px-1 text-[10px] text-ink">AI first pass</span>}
+                </p>
+                <div className="mt-2 flex flex-wrap gap-1.5 text-xs">
+                  <button disabled={busy || time >= sel.end} onClick={() => edit({ segment: sel.id, action: "edit", values: { start: Number(time.toFixed(2)) } })}
+                    className="rounded-md border border-line px-2 py-1 hover:bg-surface-2 disabled:opacity-40">Start = {fmt(time)}</button>
+                  <button disabled={busy || time <= sel.start} onClick={() => edit({ segment: sel.id, action: "edit", values: { end: Number(time.toFixed(2)) } })}
+                    className="rounded-md border border-line px-2 py-1 hover:bg-surface-2 disabled:opacity-40">End = {fmt(time)}</button>
+                  <button disabled={busy} onClick={() => edit({ segment: sel.id, action: "reject" })}
+                    className="inline-flex items-center gap-1 rounded-md border border-line px-2 py-1 text-ink-2 hover:bg-surface-2 hover:text-collision"><Trash2 className="h-3 w-3" /> Drop</button>
+                </div>
+                <div className="mt-3 space-y-2">
+                  {groqOpinion(sel.id) && <Opinion o={groqOpinion(sel.id)!} title="AI reviewer (automatic)" />}
+                  {claude[sel.id] && <Opinion o={claude[sel.id]} title="Claude (second opinion)" />}
+                  {!claude[sel.id] && (
+                    <button onClick={() => askClaude(sel.id)} disabled={claudeLeft === null || claudeLeft <= 0 || claudeBusy === sel.id}
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-line px-3 py-1.5 text-xs text-ink-2 hover:bg-surface-2 hover:text-ink disabled:opacity-40">
+                      {claudeBusy === sel.id ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Sparkles className="h-3.5 w-3.5" />}
+                      Ask Claude about this label · ~1¢ {claudeLeft !== null && <span className="text-muted">(${claudeLeft.toFixed(2)} left)</span>}
+                    </button>
+                  )}
+                </div>
+              </div>
+              <RenderPanel clipId={id} segment={sel} />
+            </section>
+          )}
+        </main>
+
+        {/* ----------------------------------------------------------- right: nudges */}
+        <aside className={`flex min-h-0 flex-col gap-3 ${view === "theater" ? "" : "lg:sticky lg:top-[4.5rem] lg:max-h-[calc(100vh-5.5rem)]"}`} aria-label="Nudges">
+          <div className="rounded-xl border border-line bg-surface p-3">
+            <div className="flex items-center justify-between gap-2">
+              <h2 className="text-sm font-semibold">Nudges for the tester</h2>
+              <span className="num text-xs text-muted">{issues.length - open.length}/{issues.length} handled</span>
+            </div>
+            <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-surface-2">
+              <div className="h-full bg-clear transition-all" style={{ width: `${issues.length ? (100 * (issues.length - open.length)) / issues.length : 0}%` }} />
+            </div>
+            <div className="mt-3 flex items-center justify-between gap-2">
+              <div role="radiogroup" aria-label="Show" className="flex rounded-lg bg-surface-2 p-0.5 text-xs">
+                {FILTERS.map((f) => (
+                  <button key={f} role="radio" aria-checked={filter === f} onClick={() => setFilter(f)}
+                    className={`rounded-md px-2 py-1 capitalize ${filter === f ? "bg-surface text-ink ring-1 ring-line" : "text-muted hover:text-ink"}`}>{f}</button>
+                ))}
+              </div>
+              {open.length > 0 && (
+                <button onClick={() => goto(open.find((i) => i.t > (focused?.t ?? -1)) ?? open[0])}
+                  className="inline-flex items-center gap-1 rounded-lg bg-accent-fill px-2.5 py-1 text-xs font-semibold text-white" title="Next open issue (N)">
+                  Next <ArrowRight className="h-3.5 w-3.5" />
+                </button>
+              )}
+            </div>
+          </div>
+          <div className="min-h-0 flex-1 space-y-2 overflow-y-auto pr-1">
+            {rep && shown.length === 0 && (
+              <p className="rounded-xl border border-dashed border-line p-6 text-center text-sm text-muted">
+                {open.length === 0 ? "Every nudge is handled. Export the clip for the client." : "Nothing in this filter."}
+              </p>
+            )}
+            {shown.map((i) => (
+              <div key={i.id} id={`issue-${i.id}`}><IssueCard key={i.id} issue={i} segment={i.segment ? segById[i.segment] : undefined} focused={focus === i.id} decided={decidedIssue[i.id]}
+                clipId={id} busy={busy} claudeLeft={claudeLeft} onFocus={() => goto(i)} onDecide={(a) => decide(i, a)}
+                onClaude={i.group === "label" && i.segment ? () => askClaude(i.segment!) : undefined} /></div>
+            ))}
+          </div>
+          {rep && (
+            <div className="space-y-2">
+              <div className="flex gap-2">
+                <a href={`/engine/clips/${id}/export`} className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-surface-2 px-3 py-2 text-sm font-semibold hover:bg-surface-2/80">
+                  <Download className="h-4 w-4" /> Export JSON
+                </a>
+                <button onClick={analyze} disabled={running} title="Re-analyze" className="ctl h-9 w-9"><RefreshCw className={`h-4 w-4 ${running ? "animate-spin" : ""}`} /></button>
+              </div>
+              {d?.workflow && d.workflow.status !== "draft" && (
+                <p className="text-center text-xs text-muted">
+                  Status: <b className="text-ink">{d.workflow.status}</b>{d.workflow.version ? ` · version ${d.workflow.version}` : ""}{d.workflow.annotator ? ` · by ${d.workflow.annotator}` : ""}
+                </p>
+              )}
+              {/* What the submission gate found. Flags addressed to the annotator are shown as work
+                  to come back to, not as a refusal: the submission went through either way. */}
+              {!!d?.workflow?.flags?.length && (
+                <div className="space-y-1.5 rounded-xl border border-caution/40 bg-caution/10 p-3">
+                  <p className="flex items-center gap-1.5 text-xs font-semibold text-warning">
+                    <AlertTriangle className="h-3.5 w-3.5" /> The pipeline flagged {d.workflow.flags.length} thing{d.workflow.flags.length !== 1 ? "s" : ""} on submit
+                  </p>
+                  {d.workflow.flags.map((f) => (
+                    <div key={f.kind} className="rounded-lg bg-surface p-2">
+                      <p className="text-xs font-semibold">{f.title}</p>
+                      <p className="mt-0.5 text-[11px] text-ink-2">{f.detail}</p>
+                      <p className="mt-1 text-[11px] text-muted">
+                        <span className="rounded bg-surface-2 px-1 font-semibold">{f.to === "annotator" ? "back to the annotator" : "for QA"}</span> {f.nudge}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {role === "annotator" && d?.workflow?.status !== "submitted" && d?.workflow?.status !== "approved" && (
+                <button onClick={submitToQA} disabled={busy || running}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent-fill px-3 py-2 text-sm font-semibold text-white hover:brightness-110 disabled:opacity-50">
+                  <Send className="h-4 w-4" /> {d?.workflow?.status === "returned" ? "Resubmit to QA" : "Submit to QA"}
+                </button>
+              )}
+              {role === "qa" && (
+                <button onClick={autofix} disabled={busy || running}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-surface-2 px-3 py-2 text-sm font-semibold hover:bg-surface-2/80 disabled:opacity-50">
+                  <Wand2 className="h-4 w-4 text-accent" /> Auto-fix all one-click issues
+                </button>
+              )}
+              {role === "qa" && (
+                <div className="flex gap-2">
+                  <button onClick={() => wf("approve")}
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-clear px-3 py-2 text-sm font-semibold text-white hover:brightness-110">
+                    <CheckCircle2 className="h-4 w-4" /> Approve
+                  </button>
+                  <button onClick={() => { const note = prompt("Note for annotator:", `Please fix the ${open.length} open issue(s) and resubmit.`); if (note !== null) wf("return", { note }); }}
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg border border-warning px-3 py-2 text-sm font-semibold text-warning hover:bg-warning/10">
+                    <RotateCcw className="h-4 w-4" /> Return
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+        </aside>
+      </div>
+    </div>
+  );
+}

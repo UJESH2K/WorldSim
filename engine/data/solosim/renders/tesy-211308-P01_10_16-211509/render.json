@@ -1,0 +1,271 @@
+{
+ "id": "tesy-211308-P01_10_16-211509",
+ "clip": "tesy-211308",
+ "segment": "P01_10_16",
+ "narration": "continue cutting pizza",
+ "prompt": "Strict first-person view from a head-mounted camera, the camera wearer's own hands in the lower half of the frame. In a first-person task, the hands continue cutting pizza: slowly and clearly, the object staying in view. The camera holds steady; the room, furniture and lighting stay exactly as in the first frame. Photorealistic, two human hands, natural skin, no extra people.",
+ "start": 55.17,
+ "end": 72.12,
+ "chunks": 12,
+ "real_frames": 12,
+ "metrics": [
+  {
+   "k": 0,
+   "scene": 0.963,
+   "hands": 1,
+   "hand_boxes": [
+    [
+     0.608993657430013,
+     0.0008327332644686372,
+     1.0,
+     0.8132092307190603
+    ]
+   ]
+  },
+  {
+   "k": 1,
+   "scene": 0.928,
+   "hands": 1,
+   "hand_boxes": [
+    [
+     0.6571184158325195,
+     0.0,
+     0.8488414764404297,
+     0.3635749954609234
+    ]
+   ]
+  },
+  {
+   "k": 2,
+   "scene": 0.848,
+   "hands": 1,
+   "hand_boxes": [
+    [
+     0.732754135131836,
+     0.13636168331876128,
+     0.8932535171508789,
+     0.5556950207651737
+    ]
+   ]
+  },
+  {
+   "k": 3,
+   "scene": 0.823,
+   "hands": 2,
+   "hand_boxes": [
+    [
+     0.7151056925455729,
+     0.14723770196687444,
+     0.8798630396525066,
+     0.5522612974531814
+    ],
+    [
+     0.3514032046000163,
+     0.09610773079662116,
+     0.4969520568847656,
+     0.4509740616009984
+    ]
+   ]
+  },
+  {
+   "k": 4,
+   "scene": 0.803,
+   "hands": 2,
+   "hand_boxes": [
+    [
+     0.341765308380127,
+     0.10005714058445679,
+     0.5024930000305176,
+     0.4496529369147676
+    ],
+    [
+     0.743121337890625,
+     0.1604544298743513,
+     0.8994976043701172,
+     0.5444002117060582
+    ]
+   ]
+  },
+  {
+   "k": 5,
+   "scene": 0.804,
+   "hands": 2,
+   "hand_boxes": [
+    [
+     0.3434987703959147,
+     0.10369441999855454,
+     0.5014194488525391,
+     0.44838480484614734
+    ],
+    [
+     0.7547096252441406,
+     0.1585426881425217,
+     0.9002525329589843,
+     0.5413813401645702
+    ]
+   ]
+  },
+  {
+   "k": 6,
+   "scene": 0.799,
+   "hands": 2,
+   "hand_boxes": [
+    [
+     0.34379876454671227,
+     0.1264408538487844,
+     0.4872809727986654,
+     0.45310216690228733
+    ],
+    [
+     0.7541378657023112,
+     0.15558420449818083,
+     0.9024780909220378,
+     0.542680320326602
+    ]
+   ]
+  },
+  {
+   "k": 7,
+   "scene": 0.798,
+   "hands": 2,
+   "hand_boxes": [
+    [
+     0.7556776682535807,
+     0.12950299534987025,
+     0.9178574244181316,
+     0.518431460383997
+    ],
+    [
+     0.32747468948364256,
+     0.066985781012029,
+     0.4697385787963867,
+     0.44354234275404725
+    ]
+   ]
+  },
+  {
+   "k": 8,
+   "scene": 0.772,
+   "hands": 2,
+   "hand_boxes": [
+    [
+     0.3316915512084961,
+     0.10143638087523973,
+     0.46554861068725584,
+     0.37885356035473544
+    ],
+    [
+     0.7640266418457031,
+     0.09645923380386959,
+     0.9171848297119141,
+     0.4034033269228057
+    ]
+   ]
+  },
+  {
+   "k": 9,
+   "scene": 0.754,
+   "hands": 2,
+   "hand_boxes": [
+    [
+     0.2849286079406738,
+     0.12670815808678362,
+     0.42017526626586915,
+     0.47916734605920014
+    ],
+    [
+     0.8069067001342773,
+     0.14756986982985953,
+     0.9926874160766601,
+     0.5603463623928249
+    ]
+   ]
+  },
+  {
+   "k": 10,
+   "scene": 0.768,
+   "hands": 2,
+   "hand_boxes": [
+    [
+     0.7525781631469727,
+     0.09653847484382051,
+     0.9243450164794922,
+     0.4568404049649566
+    ],
+    [
+     0.34033794403076173,
+     0.06099176234716973,
+     0.49257678985595704,
+     0.4006909532237139
+    ]
+   ]
+  },
+  {
+   "k": 11,
+   "scene": 0.754,
+   "hands": 1,
+   "hand_boxes": [
+    [
+     0.32861178716023765,
+     0.3089036631670239,
+     0.4843060811360677,
+     0.5925870819642656
+    ]
+   ]
+  }
+ ],
+ "judge": {
+  "renders_action": false,
+  "verdict": "fails",
+  "failures": [
+   {
+    "frame": 2,
+    "kind": "scene changed",
+    "what": "Red shirt torso and a black appliance-like object appear; the knife-cutting action is absent.",
+    "k": 2
+   },
+   {
+    "frame": 3,
+    "kind": "object vanished",
+    "what": "No knife visible in hands; hands rest on the tray edges instead of cutting.",
+    "k": 4
+   },
+   {
+    "frame": 3,
+    "kind": "extra hand",
+    "what": "A black appliance with a blue display dominates the lower frame, not present in the real footage.",
+    "k": 4
+   },
+   {
+    "frame": 4,
+    "kind": "object morphed",
+    "what": "Pizza toppings look rearranged and the device shows a '20' display, unlike the real pizza.",
+    "k": 6
+   },
+   {
+    "frame": 5,
+    "kind": "wrong action",
+    "what": "Hands hover over pizza without any cutting motion; the action is not continued.",
+    "k": 8
+   },
+   {
+    "frame": 6,
+    "kind": "hands missing",
+    "what": "Left hand is blurred and partially absent; right hand has no cutting tool.",
+    "k": 11
+   }
+  ],
+  "summary": "Render drifts from the real cutting scene into a different appliance-based setup, with no knife and no cutting motion."
+ },
+ "drift_from": 6,
+ "usage": {
+  "backend": "reactor",
+  "model": "reactor/lingbot-world-2",
+  "seconds": 10.9,
+  "usd": 0.076,
+  "cap_seconds": 30,
+  "frames": 121,
+  "chunks": 12
+ },
+ "at": "2026-10-10 21:15:32"
+}

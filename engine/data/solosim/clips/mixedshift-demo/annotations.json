@@ -1,0 +1,1125 @@
+{
+ "title": "Mixed kitchen shift (4 sessions)",
+ "task": "demo: one long shift, four different kitchens",
+ "source": {
+  "dataset": "intake",
+  "filename": "mixed.mp4",
+  "annotation_file": "none",
+  "operator": "qc"
+ },
+ "segments": [
+  {
+   "id": "ai-000",
+   "start": 0.4,
+   "end": 1.4,
+   "verb": "hold",
+   "noun": "phone",
+   "narration": "hold phone",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.6,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.17,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.69
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-001",
+   "start": 2.0,
+   "end": 7.1,
+   "verb": "filming",
+   "noun": "room with phone",
+   "narration": "filming room with phone",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.66,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.85,
+    "evidence": {
+     "hands_visible": 0.27,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.0
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-002",
+   "start": 7.1,
+   "end": 12.2,
+   "verb": "wash",
+   "noun": "dishes in the sink",
+   "narration": "wash dishes in the sink",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.6,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.27,
+     "activity": 1.0,
+     "sharp": 0.77,
+     "clean_edges": 0.61
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-003",
+   "start": 14.2,
+   "end": 15.8,
+   "verb": "cleaning",
+   "noun": "toilet",
+   "narration": "cleaning toilet",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.74,
+    "why": "the model was unsure of the name",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.78,
+     "activity": 1.0,
+     "sharp": 0.78,
+     "clean_edges": 0.74
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-004",
+   "start": 18.2,
+   "end": 22.6,
+   "verb": "washing",
+   "noun": "dishes in sink",
+   "narration": "washing dishes in sink",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.68,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.8,
+    "evidence": {
+     "hands_visible": 0.35,
+     "activity": 1.0,
+     "sharp": 0.91,
+     "clean_edges": 0.3
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-005",
+   "start": 22.6,
+   "end": 27.0,
+   "verb": "open",
+   "noun": "door",
+   "narration": "open door",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.41,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.35,
+    "evidence": {
+     "hands_visible": 0.22,
+     "activity": 1.0,
+     "sharp": 0.39,
+     "clean_edges": 0.21
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-006",
+   "start": 27.6,
+   "end": 30.8,
+   "verb": "cut",
+   "noun": "onion",
+   "narration": "cut onion",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.59,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.18,
+     "activity": 1.0,
+     "sharp": 0.76,
+     "clean_edges": 0.76
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-007",
+   "start": 38.2,
+   "end": 39.2,
+   "verb": "cut",
+   "noun": "egg",
+   "narration": "cut egg",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.63,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.5,
+     "activity": 0.95,
+     "sharp": 0.83,
+     "clean_edges": 0.36
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-008",
+   "start": 41.2,
+   "end": 42.2,
+   "verb": "peel",
+   "noun": "onion",
+   "narration": "peel onion",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.76,
+    "why": "clear hands, steady motion, confident name",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.83,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.67
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-009",
+   "start": 51.4,
+   "end": 52.4,
+   "verb": "peel",
+   "noun": "onion",
+   "narration": "peel onion",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.71,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.67,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.54
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-010",
+   "start": 59.4,
+   "end": 63.4,
+   "verb": "cut",
+   "noun": "onion",
+   "narration": "cut onion",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.74,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.7,
+    "evidence": {
+     "hands_visible": 0.57,
+     "activity": 1.0,
+     "sharp": 0.95,
+     "clean_edges": 0.74
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-011",
+   "start": 67.4,
+   "end": 68.6,
+   "verb": "cutting",
+   "noun": "onion",
+   "narration": "cutting onion",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.75,
+    "why": "clear hands, steady motion, confident name",
+    "model_confidence": 0.85,
+    "evidence": {
+     "hands_visible": 0.43,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.54
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-012",
+   "start": 73.0,
+   "end": 73.8,
+   "verb": "peel",
+   "noun": "onion",
+   "narration": "peel onion",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.66,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.4,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.66
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-013",
+   "start": 77.8,
+   "end": 79.4,
+   "verb": "peel",
+   "noun": "onion",
+   "narration": "peel onion",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.71,
+    "why": "the model was unsure of the name",
+    "model_confidence": 0.5,
+    "evidence": {
+     "hands_visible": 0.78,
+     "activity": 1.0,
+     "sharp": 0.89,
+     "clean_edges": 0.79
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-014",
+   "start": 91.6,
+   "end": 96.2,
+   "verb": "opening",
+   "noun": "oven door",
+   "narration": "opening oven door",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.7,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.75,
+    "evidence": {
+     "hands_visible": 0.29,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.8
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-015",
+   "start": 98.4,
+   "end": 102.8,
+   "verb": "wipe",
+   "noun": "oven door",
+   "narration": "wipe oven door",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.62,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.55,
+    "evidence": {
+     "hands_visible": 0.3,
+     "activity": 1.0,
+     "sharp": 0.96,
+     "clean_edges": 0.78
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-016",
+   "start": 104.8,
+   "end": 109.0,
+   "verb": "put",
+   "noun": "tray in oven",
+   "narration": "put tray in oven",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.73,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.7,
+    "evidence": {
+     "hands_visible": 0.77,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.12
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-017",
+   "start": 109.0,
+   "end": 113.2,
+   "verb": "remove",
+   "noun": "baking tray from oven",
+   "narration": "remove baking tray from oven",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.67,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.7,
+    "evidence": {
+     "hands_visible": 0.55,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.05
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-018",
+   "start": 114.6,
+   "end": 116.2,
+   "verb": "folds",
+   "noun": "kitchen towel",
+   "narration": "folds kitchen towel",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.62,
+    "why": "the model was unsure of the name",
+    "model_confidence": 0.4,
+    "evidence": {
+     "hands_visible": 0.67,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.42
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-019",
+   "start": 117.6,
+   "end": 119.2,
+   "verb": "place",
+   "noun": "pizza in oven",
+   "narration": "place pizza in oven",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.76,
+    "why": "clear hands, steady motion, confident name",
+    "model_confidence": 0.85,
+    "evidence": {
+     "hands_visible": 0.44,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.64
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-020",
+   "start": 119.8,
+   "end": 123.7,
+   "verb": "slide",
+   "noun": "pizza into oven with peel",
+   "narration": "slide pizza into oven with peel",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.53,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.15,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.0
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-021",
+   "start": 123.7,
+   "end": 127.6,
+   "verb": "place",
+   "noun": "pizza on tray",
+   "narration": "place pizza on tray",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.79,
+    "why": "clear hands, steady motion, confident name",
+    "model_confidence": 0.8,
+    "evidence": {
+     "hands_visible": 0.8,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.21
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-022",
+   "start": 130.4,
+   "end": 135.07,
+   "verb": "place",
+   "noun": "toppings on pizza",
+   "narration": "place toppings on pizza",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.78,
+    "why": "clear hands, steady motion, confident name",
+    "model_confidence": 0.72,
+    "evidence": {
+     "hands_visible": 0.79,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.48
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-023",
+   "start": 135.07,
+   "end": 139.73,
+   "verb": "grate",
+   "noun": "cheese",
+   "narration": "grate cheese",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.66,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.45,
+    "evidence": {
+     "hands_visible": 0.91,
+     "activity": 1.0,
+     "sharp": 0.96,
+     "clean_edges": 0.07
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-024",
+   "start": 139.73,
+   "end": 144.4,
+   "verb": "arranging",
+   "noun": "olives on pizza",
+   "narration": "arranging olives on pizza",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.66,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.67,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.0
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-025",
+   "start": 148.4,
+   "end": 149.4,
+   "verb": "pick",
+   "noun": "up food from the grill",
+   "narration": "pick up food from the grill",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.46,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.45,
+    "evidence": {
+     "hands_visible": 0.0,
+     "activity": 0.95,
+     "sharp": 1.0,
+     "clean_edges": 0.37
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-026",
+   "start": 162.6,
+   "end": 163.8,
+   "verb": "arrange",
+   "noun": "pizza toppings with spatula",
+   "narration": "arrange pizza toppings with spatula",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.72,
+    "why": "the model was unsure of the name",
+    "model_confidence": 0.4,
+    "evidence": {
+     "hands_visible": 1.0,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.56
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-027",
+   "start": 179.0,
+   "end": 180.2,
+   "verb": "add",
+   "noun": "toppings to pizza",
+   "narration": "add toppings to pizza",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.74,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.86,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.38
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-028",
+   "start": 182.4,
+   "end": 186.7,
+   "verb": "cut",
+   "noun": "pizza with knife",
+   "narration": "cut pizza with knife",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.72,
+    "why": "the model was unsure of the name",
+    "model_confidence": 0.5,
+    "evidence": {
+     "hands_visible": 0.91,
+     "activity": 1.0,
+     "sharp": 0.91,
+     "clean_edges": 0.55
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-029",
+   "start": 186.7,
+   "end": 191.0,
+   "verb": "slice",
+   "noun": "pizza",
+   "narration": "slice pizza",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.63,
+    "why": "the model was unsure of the name",
+    "model_confidence": 0.45,
+    "evidence": {
+     "hands_visible": 0.55,
+     "activity": 1.0,
+     "sharp": 0.95,
+     "clean_edges": 0.67
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-030",
+   "start": 204.8,
+   "end": 206.2,
+   "verb": "transfer",
+   "noun": "pizza slice to plate",
+   "narration": "transfer pizza slice to plate",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.86,
+    "why": "clear hands, steady motion, confident name",
+    "model_confidence": 0.7,
+    "evidence": {
+     "hands_visible": 1.0,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.76
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-031",
+   "start": 208.0,
+   "end": 210.6,
+   "verb": "slide",
+   "noun": "pizza onto plate",
+   "narration": "slide pizza onto plate",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.8,
+    "why": "clear hands, steady motion, confident name",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 1.0,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.64
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-032",
+   "start": 213.8,
+   "end": 215.8,
+   "verb": "cut",
+   "noun": "pizza",
+   "narration": "cut pizza",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.84,
+    "why": "clear hands, steady motion, confident name",
+    "model_confidence": 0.85,
+    "evidence": {
+     "hands_visible": 1.0,
+     "activity": 0.75,
+     "sharp": 1.0,
+     "clean_edges": 0.41
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-033",
+   "start": 220.6,
+   "end": 225.2,
+   "verb": "cut",
+   "noun": "pizza",
+   "narration": "cut pizza",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.75,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 1.0,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.09
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-034",
+   "start": 225.2,
+   "end": 229.8,
+   "verb": "carry",
+   "noun": "plate of pizza to table",
+   "narration": "carry plate of pizza to table",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.7,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.58,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.6
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-035",
+   "start": 330.8,
+   "end": 336.2,
+   "verb": "open",
+   "noun": "refrigerator door",
+   "narration": "open refrigerator door",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.56,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.55,
+    "evidence": {
+     "hands_visible": 0.18,
+     "activity": 1.0,
+     "sharp": 0.75,
+     "clean_edges": 0.68
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-036",
+   "start": 336.2,
+   "end": 341.6,
+   "verb": "take",
+   "noun": "food from fridge",
+   "narration": "take food from fridge",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.54,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.5,
+    "evidence": {
+     "hands_visible": 0.36,
+     "activity": 1.0,
+     "sharp": 0.96,
+     "clean_edges": 0.07
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-037",
+   "start": 346.4,
+   "end": 351.6,
+   "verb": "put",
+   "noun": "bread in toaster",
+   "narration": "put bread in toaster",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.74,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.8,
+    "evidence": {
+     "hands_visible": 0.7,
+     "activity": 1.0,
+     "sharp": 0.96,
+     "clean_edges": 0.0
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-038",
+   "start": 351.6,
+   "end": 356.8,
+   "verb": "open",
+   "noun": "refrigerator door",
+   "narration": "open refrigerator door",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.54,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.22,
+     "activity": 1.0,
+     "sharp": 0.93,
+     "clean_edges": 0.0
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-039",
+   "start": 356.8,
+   "end": 362.0,
+   "verb": "pick",
+   "noun": "up bag",
+   "narration": "pick up bag",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.68,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.67,
+     "activity": 1.0,
+     "sharp": 0.85,
+     "clean_edges": 0.33
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-040",
+   "start": 362.0,
+   "end": 367.2,
+   "verb": "open",
+   "noun": "refrigerator door",
+   "narration": "open refrigerator door",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.64,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.85,
+    "evidence": {
+     "hands_visible": 0.26,
+     "activity": 1.0,
+     "sharp": 0.81,
+     "clean_edges": 0.08
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-041",
+   "start": 368.0,
+   "end": 373.6,
+   "verb": "place",
+   "noun": "plate on cabinet shelf",
+   "narration": "place plate on cabinet shelf",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.59,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.28,
+     "activity": 1.0,
+     "sharp": 0.9,
+     "clean_edges": 0.43
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-042",
+   "start": 373.6,
+   "end": 379.2,
+   "verb": "place",
+   "noun": "dish in dish rack",
+   "narration": "place dish in dish rack",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.61,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.48,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.0
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-043",
+   "start": 379.2,
+   "end": 384.8,
+   "verb": "place",
+   "noun": "plate on counter",
+   "narration": "place plate on counter",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.55,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.55,
+    "evidence": {
+     "hands_visible": 0.28,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.13
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-044",
+   "start": 386.6,
+   "end": 387.8,
+   "verb": "adjust",
+   "noun": "toaster",
+   "narration": "adjust toaster",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.66,
+    "why": "the model was unsure of the name",
+    "model_confidence": 0.25,
+    "evidence": {
+     "hands_visible": 1.0,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.6
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-045",
+   "start": 390.6,
+   "end": 395.25,
+   "verb": "wash",
+   "noun": "dishes",
+   "narration": "wash dishes",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.53,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.4,
+    "evidence": {
+     "hands_visible": 0.29,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.52
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-046",
+   "start": 395.25,
+   "end": 399.9,
+   "verb": "take",
+   "noun": "a cup from the cabinet",
+   "narration": "take a cup from the cabinet",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.7,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.7,
+    "evidence": {
+     "hands_visible": 0.65,
+     "activity": 1.0,
+     "sharp": 0.87,
+     "clean_edges": 0.17
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-047",
+   "start": 399.9,
+   "end": 404.55,
+   "verb": "wash",
+   "noun": "dishes in the sink",
+   "narration": "wash dishes in the sink",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.51,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.13,
+     "activity": 1.0,
+     "sharp": 0.83,
+     "clean_edges": 0.06
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-048",
+   "start": 404.55,
+   "end": 409.2,
+   "verb": "pick",
+   "noun": "up yellow box",
+   "narration": "pick up yellow box",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.65,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.5,
+    "evidence": {
+     "hands_visible": 0.79,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.06
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-049",
+   "start": 414.2,
+   "end": 419.2,
+   "verb": "pour",
+   "noun": "juice from carton into sink",
+   "narration": "pour juice from carton into sink",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.62,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.54,
+     "activity": 1.0,
+     "sharp": 0.92,
+     "clean_edges": 0.02
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-050",
+   "start": 419.2,
+   "end": 424.2,
+   "verb": "take",
+   "noun": "food from fridge",
+   "narration": "take food from fridge",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.56,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.5,
+    "evidence": {
+     "hands_visible": 0.31,
+     "activity": 1.0,
+     "sharp": 0.81,
+     "clean_edges": 0.56
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-051",
+   "start": 429.2,
+   "end": 430.6,
+   "verb": "pick",
+   "noun": "up lemon",
+   "narration": "pick up lemon",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.7,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.62,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.58
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-052",
+   "start": 431.8,
+   "end": 432.8,
+   "verb": "pick",
+   "noun": "up lemon",
+   "narration": "pick up lemon",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.48,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.3,
+    "evidence": {
+     "hands_visible": 0.17,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.69
+    },
+    "verified": false
+   }
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "status": "returned",
+ "annotator": "ujesh",
+ "submitted_at": "2026-10-10 21:17:02",
+ "returned_at": "2026-10-10 21:17:35",
+ "approved_at": null,
+ "history": [
+  {
+   "action": "submit",
+   "at": "2026-10-10 21:17:02",
+   "by": "ujesh",
+   "note": "",
+   "version": 1,
+   "issues": 17
+  },
+  {
+   "action": "return",
+   "at": "2026-10-10 21:17:35",
+   "by": "qa",
+   "note": "Please review the flagged issues and resubmit."
+  }
+ ],
+ "initial": {
+  "issues": 17,
+  "fix": 4,
+  "readiness": 70,
+  "by_kind": {
+   "overlap": 1,
+   "early start": 2,
+   "late end": 1,
+   "hands out of view": 1,
+   "unlabelled activity": 4,
+   "fields disagree": 2,
+   "typo": 1,
+   "label doubtful": 4,
+   "label mismatch": 1
+  }
+ },
+ "version": 1,
+ "at_submit": {
+  "issues": 17,
+  "fix": 4,
+  "readiness": 70,
+  "by_kind": {
+   "overlap": 1,
+   "early start": 2,
+   "late end": 1,
+   "hands out of view": 1,
+   "unlabelled activity": 4,
+   "fields disagree": 2,
+   "typo": 1,
+   "label doubtful": 4,
+   "label mismatch": 1
+  }
+ }
+}

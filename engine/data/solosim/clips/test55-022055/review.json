@@ -1,0 +1,324 @@
+{
+ "decisions": [
+  {
+   "at": "2026-10-11 02:25:50",
+   "segment": "ai-011",
+   "issue": "i08f58533",
+   "kind": "blur",
+   "action": "reject",
+   "values": {},
+   "note": ""
+  },
+  {
+   "at": "2026-10-11 02:26:41",
+   "segment": "qa-5801717",
+   "issue": null,
+   "kind": null,
+   "action": "add",
+   "values": {
+    "start": 40.38,
+    "end": 42.38,
+    "narration": ""
+   },
+   "note": ""
+  },
+  {
+   "at": "2026-10-11 02:26:53",
+   "segment": "qa-5801717",
+   "issue": null,
+   "kind": null,
+   "action": "edit",
+   "values": {
+    "narration": "washing continues"
+   },
+   "note": ""
+  },
+  {
+   "at": "2026-10-11 02:26:59",
+   "segment": "qa-5801717",
+   "issue": null,
+   "kind": null,
+   "action": "edit",
+   "values": {
+    "end": 49.4
+   },
+   "note": ""
+  },
+  {
+   "at": "2026-10-11 02:27:02",
+   "segment": "qa-5801717",
+   "issue": null,
+   "kind": null,
+   "action": "edit",
+   "values": {
+    "end": 52.24
+   },
+   "note": ""
+  },
+  {
+   "at": "2026-10-11 02:27:05",
+   "segment": "qa-5801717",
+   "issue": null,
+   "kind": null,
+   "action": "edit",
+   "values": {
+    "end": 54.99
+   },
+   "note": ""
+  }
+ ],
+ "original": [
+  {
+   "id": "ai-000",
+   "start": 0.4,
+   "end": 2.4,
+   "verb": "fold",
+   "noun": "the cloth on the table",
+   "narration": "fold the cloth on the table",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.7,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.5,
+    "evidence": {
+     "hands_visible": 0.8,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.47
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-001",
+   "start": 15.62,
+   "end": 20.62,
+   "verb": "carry",
+   "noun": "bag",
+   "narration": "carry bag",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.51,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.45,
+    "evidence": {
+     "hands_visible": 0.17,
+     "activity": 1.0,
+     "sharp": 0.88,
+     "clean_edges": 0.53
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-002",
+   "start": 20.62,
+   "end": 25.63,
+   "verb": "carry",
+   "noun": "yellow tray to table",
+   "narration": "carry yellow tray to table",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.53,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.45,
+    "evidence": {
+     "hands_visible": 0.35,
+     "activity": 1.0,
+     "sharp": 0.88,
+     "clean_edges": 0.25
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-003",
+   "start": 26.23,
+   "end": 31.43,
+   "verb": "washing",
+   "noun": "dishes in sink",
+   "narration": "washing dishes in sink",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.68,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.56,
+     "activity": 1.0,
+     "sharp": 0.84,
+     "clean_edges": 0.69
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-004",
+   "start": 33.03,
+   "end": 34.83,
+   "verb": "wash",
+   "noun": "dishes in the sink",
+   "narration": "wash dishes in the sink",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.72,
+    "why": "the model was unsure of the name",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.67,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.61
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-005",
+   "start": 36.24,
+   "end": 38.24,
+   "verb": "scrub",
+   "noun": "pot in sink",
+   "narration": "scrub pot in sink",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.7,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.85,
+    "evidence": {
+     "hands_visible": 0.3,
+     "activity": 0.87,
+     "sharp": 1.0,
+     "clean_edges": 0.55
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-006",
+   "start": 61.26,
+   "end": 66.67,
+   "verb": "washing",
+   "noun": "dishes in the sink",
+   "narration": "washing dishes in the sink",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.68,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.57,
+     "activity": 1.0,
+     "sharp": 0.89,
+     "clean_edges": 0.62
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-007",
+   "start": 67.87,
+   "end": 68.67,
+   "verb": "folding",
+   "noun": "striped towel",
+   "narration": "folding striped towel",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.76,
+    "why": "clear hands, steady motion, confident name",
+    "model_confidence": 0.8,
+    "evidence": {
+     "hands_visible": 0.75,
+     "activity": 0.91,
+     "sharp": 1.0,
+     "clean_edges": 0.14
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-008",
+   "start": 69.27,
+   "end": 74.47,
+   "verb": "unfold",
+   "noun": "paper sheet",
+   "narration": "unfold paper sheet",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.72,
+    "why": "the model was unsure of the name",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.72,
+     "activity": 1.0,
+     "sharp": 0.88,
+     "clean_edges": 0.64
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-009",
+   "start": 77.88,
+   "end": 81.28,
+   "verb": "carry",
+   "noun": "white object",
+   "narration": "carry white object",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.52,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.45,
+    "evidence": {
+     "hands_visible": 0.44,
+     "activity": 1.0,
+     "sharp": 0.5,
+     "clean_edges": 0.28
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-010",
+   "start": 81.28,
+   "end": 84.68,
+   "verb": "pour",
+   "noun": "water into cup",
+   "narration": "pour water into cup",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.61,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.59,
+     "activity": 1.0,
+     "sharp": 0.76,
+     "clean_edges": 0.0
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-011",
+   "start": 96.3,
+   "end": 97.9,
+   "verb": "pick",
+   "noun": "up glass",
+   "narration": "pick up glass",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.76,
+    "why": "clear hands, steady motion, confident name",
+    "model_confidence": 0.8,
+    "evidence": {
+     "hands_visible": 0.75,
+     "activity": 1.0,
+     "sharp": 0.5,
+     "clean_edges": 0.52
+    },
+    "verified": false
+   }
+  }
+ ]
+}

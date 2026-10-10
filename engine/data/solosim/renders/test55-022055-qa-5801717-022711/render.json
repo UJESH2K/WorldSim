@@ -1,0 +1,288 @@
+{
+ "id": "test55-022055-qa-5801717-022711",
+ "clip": "test55-022055",
+ "segment": "qa-5801717",
+ "narration": "washing continues",
+ "prompt": "Strict first-person view from a head-mounted camera, the camera wearer's own hands in the lower half of the frame. In a first-person task, the hands washing continues: slowly and clearly, the object staying in view. The camera holds steady; the room, furniture and lighting stay exactly as in the first frame. Photorealistic, two human hands, natural skin, no extra people.",
+ "start": 40.38,
+ "end": 54.99,
+ "chunks": 12,
+ "real_frames": 12,
+ "metrics": [
+  {
+   "k": 0,
+   "scene": 0.975,
+   "hands": 0,
+   "hand_boxes": []
+  },
+  {
+   "k": 1,
+   "scene": 0.93,
+   "hands": 2,
+   "hand_boxes": [
+    [
+     0.3881215731302897,
+     0.2329940520469032,
+     0.5751497268676757,
+     0.5765752689072371
+    ],
+    [
+     0.5466135025024415,
+     0.2658718949190546,
+     0.7039493560791016,
+     0.5698311595710176
+    ]
+   ]
+  },
+  {
+   "k": 2,
+   "scene": 0.866,
+   "hands": 2,
+   "hand_boxes": [
+    [
+     0.3387333869934082,
+     0.2964206516527527,
+     0.49192171096801757,
+     0.6158793755817069
+    ],
+    [
+     0.5472483317057292,
+     0.29239662803897787,
+     0.710286013285319,
+     0.6489911131049751
+    ]
+   ]
+  },
+  {
+   "k": 3,
+   "scene": 0.848,
+   "hands": 2,
+   "hand_boxes": [
+    [
+     0.3361530303955078,
+     0.31530579935342395,
+     0.4890859603881836,
+     0.6456921849440151
+    ],
+    [
+     0.5770940144856771,
+     0.3077783137021943,
+     0.7239398320515951,
+     0.6082978506811259
+    ]
+   ]
+  },
+  {
+   "k": 4,
+   "scene": 0.852,
+   "hands": 3,
+   "hand_boxes": [
+    [
+     0.5699125289916992,
+     0.43181318152252085,
+     0.7148435592651368,
+     0.6534454125359601
+    ],
+    [
+     0.356965160369873,
+     0.410635249279036,
+     0.5067702293395996,
+     0.6552062878109488
+    ],
+    [
+     0.4701504707336426,
+     0.2597413321264384,
+     0.589239501953125,
+     0.48689281036707466
+    ]
+   ]
+  },
+  {
+   "k": 5,
+   "scene": 0.84,
+   "hands": 2,
+   "hand_boxes": [
+    [
+     0.5685419718424479,
+     0.30039741158055056,
+     0.7221666971842448,
+     0.6031441258179152
+    ],
+    [
+     0.3433030128479004,
+     0.306814448497786,
+     0.4894092559814453,
+     0.6318977989444664
+    ]
+   ]
+  },
+  {
+   "k": 6,
+   "scene": 0.867,
+   "hands": 2,
+   "hand_boxes": [
+    [
+     0.5124785423278808,
+     0.26211052078632674,
+     0.6479489008585612,
+     0.6125884899593863
+    ],
+    [
+     0.40049241383870443,
+     0.28335017675957525,
+     0.5297289212544759,
+     0.6435662004491483
+    ]
+   ]
+  },
+  {
+   "k": 7,
+   "scene": 0.861,
+   "hands": 2,
+   "hand_boxes": [
+    [
+     0.5687406539916993,
+     0.3309342973068733,
+     0.7365468978881836,
+     0.6304521801669675
+    ],
+    [
+     0.31531829833984376,
+     0.35448681662659354,
+     0.47440423965454104,
+     0.6663196990636282
+    ]
+   ]
+  },
+  {
+   "k": 8,
+   "scene": 0.865,
+   "hands": 2,
+   "hand_boxes": [
+    [
+     0.33104143142700193,
+     0.31635931682930957,
+     0.49751596450805663,
+     0.6721351155305167
+    ],
+    [
+     0.548762321472168,
+     0.25319784556915614,
+     0.7148738861083984,
+     0.6414320632438797
+    ]
+   ]
+  },
+  {
+   "k": 9,
+   "scene": 0.863,
+   "hands": 2,
+   "hand_boxes": [
+    [
+     0.34793720245361326,
+     0.2931750741676303,
+     0.5022625923156738,
+     0.6314100134673962
+    ],
+    [
+     0.5357418060302734,
+     0.26405428118654106,
+     0.6966882705688476,
+     0.575685411584076
+    ]
+   ]
+  },
+  {
+   "k": 10,
+   "scene": 0.861,
+   "hands": 3,
+   "hand_boxes": [
+    [
+     0.32552347183227537,
+     0.41037282014151344,
+     0.48569345474243164,
+     0.7287176800118457
+    ],
+    [
+     0.5809696833292644,
+     0.4421961539919196,
+     0.7553675333658855,
+     0.7956453729622631
+    ],
+    [
+     0.4698628425598145,
+     0.24746109174046707,
+     0.5879093170166015,
+     0.4194879359716973
+    ]
+   ]
+  },
+  {
+   "k": 11,
+   "scene": 0.865,
+   "hands": 2,
+   "hand_boxes": [
+    [
+     0.3726695378621419,
+     0.2579958533552149,
+     0.529312260945638,
+     0.5864771212911778
+    ],
+    [
+     0.5181735038757325,
+     0.25759650826023806,
+     0.6877035140991211,
+     0.5744810138798793
+    ]
+   ]
+  }
+ ],
+ "judge": {
+  "renders_action": true,
+  "verdict": "partial",
+  "failures": [
+   {
+    "frame": 2,
+    "kind": "hands merged",
+    "what": "Both hands flatten together over the sink, blurring into one mass rather than distinct washing hands.",
+    "k": 2
+   },
+   {
+    "frame": 3,
+    "kind": "extra hand",
+    "what": "Hands appear splayed and overlapping, with unclear finger counts and anatomy.",
+    "k": 4
+   },
+   {
+    "frame": 4,
+    "kind": "hands merged",
+    "what": "Hands press flat side by side in a fused, palm-down pose, not scrubbing the sink contents.",
+    "k": 6
+   },
+   {
+    "frame": 5,
+    "kind": "wrong action",
+    "what": "Palms rest on the basin surface instead of rubbing or scrubbing; motion reads as pressing.",
+    "k": 8
+   },
+   {
+    "frame": 6,
+    "kind": "object morphed",
+    "what": "Sink contents and sponge-like foam shift shape and position between frames inconsistently.",
+    "k": 11
+   }
+  ],
+  "summary": "Render shows the sink-washing scene, but hands merge and deform, and the washing motion becomes a static press, so it is not reliable training data."
+ },
+ "drift_from": null,
+ "usage": {
+  "backend": "reactor",
+  "model": "reactor/lingbot-world-2",
+  "seconds": 10.8,
+  "usd": 0.076,
+  "cap_seconds": 30,
+  "frames": 147,
+  "chunks": 12
+ },
+ "at": "2026-10-11 02:27:33"
+}

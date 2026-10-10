@@ -1,0 +1,476 @@
+{
+ "title": "test1",
+ "task": "first-person task",
+ "source": {
+  "dataset": "intake",
+  "filename": "P01_10.mp4",
+  "annotation_file": "AI first pass",
+  "operator": "qc"
+ },
+ "segments": [
+  {
+   "id": "qa-3162424",
+   "start": 0.0,
+   "end": 2.0,
+   "verb": "cut",
+   "noun": "pizza",
+   "narration": "cut pizza",
+   "meta": {
+    "added_by": "qa"
+   }
+  },
+  {
+   "id": "ai-000",
+   "start": 0.2,
+   "end": 4.0,
+   "verb": "opening",
+   "noun": "oven door",
+   "narration": "opening oven door",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.76,
+    "why": "clear hands, steady motion, confident name",
+    "model_confidence": 0.8,
+    "evidence": {
+     "hands_visible": 0.47,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.68
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-001",
+   "start": 6.41,
+   "end": 10.81,
+   "verb": "pick",
+   "noun": "up spatula",
+   "narration": "pick up spatula",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.59,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.5,
+    "evidence": {
+     "hands_visible": 0.33,
+     "activity": 1.0,
+     "sharp": 0.9,
+     "clean_edges": 0.7
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-002",
+   "start": 13.01,
+   "end": 16.62,
+   "verb": "adjust",
+   "noun": "pastry on tray",
+   "narration": "adjust pastry on tray",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.62,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.4,
+    "evidence": {
+     "hands_visible": 0.79,
+     "activity": 1.0,
+     "sharp": 0.95,
+     "clean_edges": 0.15
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-003",
+   "start": 16.62,
+   "end": 20.22,
+   "verb": "remove",
+   "noun": "baking tray from oven",
+   "narration": "remove baking tray from oven",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.69,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.7,
+    "evidence": {
+     "hands_visible": 0.53,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.27
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-004",
+   "start": 23.02,
+   "end": 24.02,
+   "verb": "fold",
+   "noun": "towel",
+   "narration": "fold towel",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.63,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.5,
+    "evidence": {
+     "hands_visible": 0.6,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.34
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-005",
+   "start": 25.83,
+   "end": 27.23,
+   "verb": "place",
+   "noun": "pizza in oven",
+   "narration": "place pizza in oven",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.7,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.8,
+    "evidence": {
+     "hands_visible": 0.29,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.59
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-006",
+   "start": 28.03,
+   "end": 29.23,
+   "verb": "remove",
+   "noun": "food from oven",
+   "narration": "remove food from oven",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.57,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.55,
+    "evidence": {
+     "hands_visible": 0.17,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.58
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-007",
+   "start": 30.43,
+   "end": 35.44,
+   "verb": "arrange",
+   "noun": "toppings on pizza",
+   "narration": "arrange toppings on pizza",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.65,
+    "why": "the model was unsure of the name",
+    "model_confidence": 0.45,
+    "evidence": {
+     "hands_visible": 0.62,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.69
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-008",
+   "start": 38.64,
+   "end": 43.24,
+   "verb": "adjusting",
+   "noun": "pizza on tray",
+   "narration": "adjusting pizza on tray",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.73,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.77,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.45
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-009",
+   "start": 43.24,
+   "end": 47.85,
+   "verb": "chop",
+   "noun": "garlic",
+   "narration": "chop garlic",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.57,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.3,
+    "evidence": {
+     "hands_visible": 0.83,
+     "activity": 1.0,
+     "sharp": 0.92,
+     "clean_edges": 0.04
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-010",
+   "start": 47.85,
+   "end": 47.85,
+   "verb": "arrange",
+   "noun": "olives on pizza",
+   "narration": "arrange olives on pizza",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.75,
+    "why": "clear hands, steady motion, confident name",
+    "model_confidence": 0.8,
+    "evidence": {
+     "hands_visible": 0.73,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.0
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "qa-2613029",
+   "start": 47.85,
+   "end": 49.85,
+   "verb": "new",
+   "noun": "action",
+   "narration": "new action",
+   "meta": {
+    "added_by": "qa"
+   }
+  },
+  {
+   "id": "added-1791652644",
+   "start": 50.3,
+   "end": 52.3,
+   "verb": "?",
+   "noun": "",
+   "narration": "unlabelled action (to name)",
+   "meta": {
+    "added_by": "qa"
+   }
+  },
+  {
+   "id": "qa-2621194",
+   "start": 52.65,
+   "end": 54.65,
+   "verb": "new",
+   "noun": "action",
+   "narration": "new action",
+   "meta": {
+    "added_by": "qa"
+   }
+  },
+  {
+   "id": "ai-011",
+   "start": 70.87,
+   "end": 71.67,
+   "verb": "slide",
+   "noun": "spatula under pizza",
+   "narration": "slide spatula under pizza",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.71,
+    "why": "the model was unsure of the name",
+    "model_confidence": 0.4,
+    "evidence": {
+     "hands_visible": 1.0,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.48
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-012",
+   "start": 87.49,
+   "end": 88.29,
+   "verb": "sprinkle",
+   "noun": "toppings on pizza",
+   "narration": "sprinkle toppings on pizza",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.71,
+    "why": "the action does not start or stop cleanly",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.75,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.32
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-013",
+   "start": 90.69,
+   "end": 94.79,
+   "verb": "cut",
+   "noun": "pizza",
+   "narration": "cut pizza",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.67,
+    "why": "the model was unsure of the name",
+    "model_confidence": 0.45,
+    "evidence": {
+     "hands_visible": 0.76,
+     "activity": 1.0,
+     "sharp": 0.95,
+     "clean_edges": 0.5
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-014",
+   "start": 94.79,
+   "end": 98.9,
+   "verb": "carry",
+   "noun": "plate to stove",
+   "narration": "carry plate to stove",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.67,
+    "why": "the hands were often out of frame",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.48,
+     "activity": 1.0,
+     "sharp": 0.95,
+     "clean_edges": 0.66
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-015",
+   "start": 112.91,
+   "end": 114.31,
+   "verb": "cut",
+   "noun": "pizza slice",
+   "narration": "cut pizza slice",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.85,
+    "why": "clear hands, steady motion, confident name",
+    "model_confidence": 0.7,
+    "evidence": {
+     "hands_visible": 1.0,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.74
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-016",
+   "start": 116.12,
+   "end": 118.52,
+   "verb": "transfer",
+   "noun": "pizza slice with spatula",
+   "narration": "transfer pizza slice with spatula",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.76,
+    "why": "clear hands, steady motion, confident name",
+    "model_confidence": 0.5,
+    "evidence": {
+     "hands_visible": 1.0,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.6
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-017",
+   "start": 128.73,
+   "end": 130.13,
+   "verb": "cut",
+   "noun": "pizza with knife",
+   "narration": "cut pizza with knife",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.88,
+    "why": "clear hands, steady motion, confident name",
+    "model_confidence": 0.8,
+    "evidence": {
+     "hands_visible": 1.0,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.57
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-018",
+   "start": 130.93,
+   "end": 132.73,
+   "verb": "transfer",
+   "noun": "pizza slice to plate",
+   "narration": "transfer pizza slice to plate",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.77,
+    "why": "clear hands, steady motion, confident name",
+    "model_confidence": 0.6,
+    "evidence": {
+     "hands_visible": 0.89,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.56
+    },
+    "verified": false
+   }
+  },
+  {
+   "id": "ai-019",
+   "start": 133.53,
+   "end": 137.94,
+   "verb": "carry",
+   "noun": "plate of pizza to table",
+   "narration": "carry plate of pizza to table",
+   "meta": {
+    "drafted_by": "ai",
+    "confidence": 0.79,
+    "why": "clear hands, steady motion, confident name",
+    "model_confidence": 0.8,
+    "evidence": {
+     "hands_visible": 0.61,
+     "activity": 1.0,
+     "sharp": 1.0,
+     "clean_edges": 0.72
+    },
+    "verified": false
+   }
+  }
+ ]
+}

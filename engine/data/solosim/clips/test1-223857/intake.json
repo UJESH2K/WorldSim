@@ -1,0 +1,22 @@
+{
+ "start": 0.0,
+ "end": 139.04,
+ "duration": 139.04,
+ "kept": 139.04,
+ "confidence": 0.65,
+ "head_dead": 0.0,
+ "tail_dead": 0.0,
+ "cut_share": 0.0,
+ "reasons": [
+  "the hands work steadily from start to end: nothing worth cutting"
+ ],
+ "auto": true,
+ "applied": false,
+ "draft": {
+  "drafted": 20,
+  "mean_confidence": 0.7,
+  "high": 7,
+  "medium": 13,
+  "low": 0
+ }
+}
